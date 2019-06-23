@@ -1,7 +1,8 @@
 # Set up regular Puppet runs
 file { '/usr/local/bin/run-puppet':
-  source => '/etc/puppetlabs/code/environments/production/files/run-puppet.sh',
+  ensure => link,
   mode   => '0755',
+  target => '/etc/puppetlabs/code/environments/production/files/run-puppet.sh',
 }
 
 cron { 'run-puppet':
